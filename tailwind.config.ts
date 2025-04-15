@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -69,8 +70,14 @@ export default {
 					orange: '#FF5C2A',
 					yellow: '#FFA500',
 					lightgray: '#F5F5F5',
-					gray: '#6B7280'
+					gray: '#6B7280',
+					red: '#ed1c24',
+					purple: '#5a0080',
+					maroon: '#910048'
 				}
+			},
+			backgroundImage: {
+				'dil-gradient': 'linear-gradient(90deg, #5a0080 0%, #910048 50%, #ed1c24 100%)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -135,6 +142,10 @@ export default {
 					'50%': {
 						transform: 'translateY(-10px)'
 					}
+				},
+				'marquee': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-100%)' }
 				}
 			},
 			animation: {
@@ -144,7 +155,8 @@ export default {
 				'slide-in-right': 'slide-in-right 0.5s ease-out',
 				'slide-in-left': 'slide-in-left 0.5s ease-out',
 				'pulse-slow': 'pulse-slow 3s infinite',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'marquee': 'marquee 20s linear infinite'
 			}
 		}
 	},

@@ -1,34 +1,59 @@
 
 import React from 'react';
+import { Circle } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <div className="pt-20 bg-gradient-to-r from-dil-lightgray to-white">
-      <div className="container mx-auto px-4 py-16 md:py-24">
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <div className="md:w-1/2 mb-10 md:mb-0 animate-fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold text-dil-darkblue mb-4">
-              Streamlining Food Supply for HORECA Businesses
+    <div className="relative">
+      {/* Main gradient background */}
+      <div className="bg-dil-gradient pt-24 pb-10">
+        <div className="container mx-auto px-4 py-16">
+          <div className="flex flex-col items-center text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-5xl mx-auto leading-tight">
+              Enabling restaurants and quick commerce players to cook fast, so that they can deliver fast!
             </h1>
-            <p className="text-xl text-dil-gray mb-8">
-              High-quality ingredients, smart logistics, and excellent service for restaurants, hotels, and cafes.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-dil-blue hover:bg-dil-darkblue text-white py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
-                Get Started
-              </button>
-              <button className="border-2 border-dil-blue text-dil-blue hover:bg-dil-blue hover:text-white py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out">
-                Learn More
-              </button>
+            
+            <div className="flex flex-col md:flex-row justify-center mt-12 gap-6 md:gap-12">
+              <div className="flex items-center text-white">
+                <div className="w-3 h-3 bg-dil-yellow rounded-full mr-3"></div>
+                <span className="text-lg md:text-xl">In-house automated manufacturing facility</span>
+              </div>
+              
+              <div className="flex items-center text-white">
+                <div className="w-3 h-3 bg-dil-yellow rounded-full mr-3"></div>
+                <span className="text-lg md:text-xl">AM to PM food solutions</span>
+              </div>
+              
+              <div className="flex items-center text-white">
+                <div className="w-3 h-3 bg-dil-yellow rounded-full mr-3"></div>
+                <span className="text-lg md:text-xl">All cuisines covered</span>
+              </div>
             </div>
           </div>
-          <div className="md:w-1/2 animate-slide-in-right">
-            <img 
-              src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-              alt="Food Supply Chain Visualization" 
-              className="rounded-lg shadow-xl w-full h-auto"
-            />
-          </div>
+        </div>
+      </div>
+      
+      {/* Yellow scrolling banner */}
+      <div className="bg-dil-yellow py-3 overflow-hidden whitespace-nowrap">
+        <div className="animate-marquee inline-block">
+          <span className="text-lg font-bold mr-4">READY TO EAT!</span>
+          <span className="text-lg font-bold mr-4">READY TO REGENERATE IN 2 MINUTES!</span>
+          <span className="text-lg font-bold mr-4">READY TO COOK!</span>
+          <span className="text-lg font-bold mr-4">READY TO EAT!</span>
+          <span className="text-lg font-bold mr-4">READY TO REGENERATE IN 2 MINUTES!</span>
+          <span className="text-lg font-bold mr-4">READY TO COOK!</span>
+          <span className="text-lg font-bold mr-4">READY TO EAT!</span>
+          <span className="text-lg font-bold mr-4">READY TO REGENERATE IN 2 MINUTES!</span>
+        </div>
+        <div className="animate-marquee inline-block absolute">
+          <span className="text-lg font-bold mr-4">READY TO EAT!</span>
+          <span className="text-lg font-bold mr-4">READY TO REGENERATE IN 2 MINUTES!</span>
+          <span className="text-lg font-bold mr-4">READY TO COOK!</span>
+          <span className="text-lg font-bold mr-4">READY TO EAT!</span>
+          <span className="text-lg font-bold mr-4">READY TO REGENERATE IN 2 MINUTES!</span>
+          <span className="text-lg font-bold mr-4">READY TO COOK!</span>
+          <span className="text-lg font-bold mr-4">READY TO EAT!</span>
+          <span className="text-lg font-bold mr-4">READY TO REGENERATE IN 2 MINUTES!</span>
         </div>
       </div>
     </div>

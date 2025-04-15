@@ -36,15 +36,12 @@ const categories = [
 
 const Products = () => {
   return (
-    <section className="py-16 bg-dil-lightgray" id="products">
+    <section className="py-16 bg-white" id="products">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-dil-darkblue mb-4">
-            Our Product Categories
+          <h2 className="text-3xl md:text-4xl font-bold text-dil-maroon mb-4">
+            Our Food Categories
           </h2>
-          <p className="text-xl text-dil-gray max-w-3xl mx-auto">
-            Explore our wide range of high-quality food products for your business
-          </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -62,13 +59,13 @@ const Products = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-dil-darkblue mb-2 group-hover:text-dil-blue transition-colors">
+                <h3 className="text-xl font-semibold text-dil-maroon mb-2 group-hover:text-dil-red transition-colors">
                   {category.name}
                 </h3>
                 <p className="text-dil-gray">
                   {category.description}
                 </p>
-                <button className="mt-4 text-dil-blue font-medium flex items-center group-hover:text-dil-orange transition-colors">
+                <button className="mt-4 text-dil-purple font-medium flex items-center group-hover:text-dil-orange transition-colors">
                   View Products 
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
