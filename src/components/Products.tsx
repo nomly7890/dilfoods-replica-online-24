@@ -1,80 +1,138 @@
-
-import React from 'react';
+import { Button } from './ui/button';
+import { Card, CardContent, CardFooter } from './ui/card';
+import { ArrowRightIcon } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from './ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 const categories = [
   {
-    name: "Fresh Produce",
-    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "Farm-fresh vegetables and fruits sourced directly from verified farmers."
+    name: "Base Gravies",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/aZsC0lEH.webp"
   },
   {
-    name: "Dairy & Cheese",
-    image: "https://images.unsplash.com/photo-1559598467-f8b76c8155d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "Premium quality dairy products including a variety of local and imported cheeses."
+    name: "Chaap",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/G8RLxVv6.webp"
   },
   {
-    name: "Meat & Poultry",
-    image: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "High-quality, fresh meat and poultry products following strict safety standards."
+    name: "Flat Breads",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/fPuwdTeJ.webp"
   },
   {
-    name: "Seafood",
-    image: "https://images.unsplash.com/photo-1510130387422-82bed34b37e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "Fresh seafood options from sustainable sources, delivered in optimal condition."
+    name: "Momos",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/YmDyErEy.webp"
   },
   {
-    name: "Bakery Items",
-    image: "https://images.unsplash.com/photo-1517433367423-c7e5b0f35086?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "Freshly baked bread, pastries, and other bakery essentials for your establishment."
+    name: "More Items",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/plBdiEvZ.webp"
   },
   {
-    name: "Dry Goods & Staples",
-    image: "https://images.unsplash.com/photo-1620924035122-e74e6fc77f66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    description: "Essential cooking ingredients, pulses, rice, and other pantry necessities."
+    name: "Non Veg Snacks",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/FbCNp4PO.webp"
+  },
+  {
+    name: "Ready Gravies",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/FSdzaL7l.webp"
+  },
+  {
+    name: "Rice Magic",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/TChHYvDr.webp"
+  },
+  {
+    name: "Side Dish",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/vNCLNHzV.webp"
+  },
+  {
+    name: "South Indian",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/yPdcgyzW.webp"
+  },
+  {
+    name: "Traditional Sweets",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/vBWdlc8t.webp"
+  },
+  {
+    name: "Veg Main Course",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/yYBCi3Y4.webp"
+  },
+  {
+    name: "Veg Snacks",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/ofjbfceH.webp"
   }
 ];
 
 const Products = () => {
+  // Function to chunk array into groups of 8
+  const chunkArray = (arr: any[], size: number) => {
+    return Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+      arr.slice(i * size, i * size + size)
+    );
+  };
+
+  const categoryChunks = chunkArray(categories, 8);
+
   return (
     <section className="py-16 bg-white" id="products">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-dil-maroon mb-4">
+          <h2 className="font-playfair text-3xl md:text-4xl font-bold text-dil-maroon mb-4">
             Our Food Categories
           </h2>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {categories.map((category, index) => (
-            <div 
-              key={index} 
-              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={category.image} 
-                  alt={category.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-dil-maroon mb-2 group-hover:text-dil-red transition-colors">
-                  {category.name}
-                </h3>
-                <p className="text-dil-gray">
-                  {category.description}
-                </p>
-                <button className="mt-4 text-dil-purple font-medium flex items-center group-hover:text-dil-orange transition-colors">
-                  View Products 
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[Autoplay({
+            stopOnInteraction: false,
+            delay: 3000,
+          })]}
+          className="w-full"
+        >
+          <CarouselContent>
+            {categoryChunks.map((chunk, chunkIndex) => (
+              <CarouselItem key={chunkIndex}>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                  {chunk.map((category, index) => (
+                    <Card key={index} className="group relative space-y-4 overflow-hidden">
+                      <figure className="group-hover:opacity-90">
+                        <img
+                          className="aspect-square w-full object-cover"
+                          src={category.image}
+                          alt={category.name}
+                        />
+                      </figure>
+                      <CardContent className="px-4 py-3">
+                        <div>
+                          <h3 className="text-lg font-semibold text-dil-maroon group-hover:text-dil-red transition-colors">
+                            <a href="#" className="hover:text-dil-red">
+                              <span aria-hidden="true" className="absolute inset-0" />
+                              {category.name}
+                            </a>
+                          </h3>
+                          {/* <p className="text-sm text-dil-gray mt-1 line-clamp-2">{category.description}</p> */}
+                        </div>
+                      </CardContent>
+                      <CardFooter className="p-0 border-t">
+                        <Button variant="ghost" className="w-full text-dil-purple hover:text-dil-orange">
+                          <ArrowRightIcon className="h-4 w-4 mr-2" /> Order Now
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  ))}
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-2 bg-white/80 hover:bg-white" />
+          <CarouselNext className="right-2 bg-white/80 hover:bg-white" />
+        </Carousel>
       </div>
     </section>
   );

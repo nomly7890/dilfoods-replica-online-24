@@ -4,12 +4,15 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'luc
 
 const Footer = () => {
   return (
-    <footer className="bg-dil-darkblue text-white">
+    <footer className="bg-black text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
             <div className="text-2xl font-bold mb-6">
-              <span className="text-soft-peach">Kingdom</span>Foods
+            <div className="font-montserrat">
+            <span className="text-dil-red font-bold text-2xl italic">KINGDOM</span>
+            <span className="text-white text-xl ml-1 font-medium italic">FOODS</span>
+          </div>
             </div>
             <p className="text-gray-300 mb-6">
               Streamlining food supply for HORECA businesses with quality products and reliable service.

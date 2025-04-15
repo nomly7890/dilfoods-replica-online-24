@@ -1,132 +1,160 @@
-
-import React, { useEffect, useRef } from 'react';
-import { Button } from './ui/button';
-import { Star } from 'lucide-react';
-
+"use client";
+import React, { useEffect, useRef, useState } from "react";
+import { Button } from "./ui/button";
+import { Star } from "lucide-react";
+import EnquiryForm from "./EnquiryForm";
 const categories = [
   {
-    name: "Fresh Produce",
-    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    name: "Base Gravies",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/aZsC0lEH.webp",
   },
   {
-    name: "Dairy & Cheese",
-    image: "https://images.unsplash.com/photo-1559598467-f8b76c8155d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    name: "Chaap",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/G8RLxVv6.webp",
   },
   {
-    name: "Meat & Poultry",
-    image: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    name: "Flat Breads",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/fPuwdTeJ.webp",
   },
   {
-    name: "Seafood",
-    image: "https://images.unsplash.com/photo-1510130387422-82bed34b37e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    name: "Momos",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/YmDyErEy.webp",
   },
   {
-    name: "Bakery Items",
-    image: "https://images.unsplash.com/photo-1517433367423-c7e5b0f35086?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-  }
+    name: "More Items",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/plBdiEvZ.webp",
+  },
+  {
+    name: "Non Veg Snacks",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/FbCNp4PO.webp",
+  },
+  {
+    name: "Ready Gravies",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/FSdzaL7l.webp",
+  },
+  {
+    name: "Rice Magic",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/TChHYvDr.webp",
+  },
+  {
+    name: "Side Dish",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/vNCLNHzV.webp",
+  },
+  {
+    name: "South Indian",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/yPdcgyzW.webp",
+  },
+  {
+    name: "Traditional Sweets",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/vBWdlc8t.webp",
+  },
+  {
+    name: "Veg Main Course",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/yYBCi3Y4.webp",
+  },
+  {
+    name: "Veg Snacks",
+    image: "https://cdn.dotpe.in/longtail/item_category/696120/ofjbfceH.webp",
+  },
 ];
 
 const Hero = () => {
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (carouselRef.current) {
-        if (carouselRef.current.scrollLeft >= carouselRef.current.scrollWidth - carouselRef.current.clientWidth) {
-          carouselRef.current.scrollLeft = 0;
-        } else {
-          carouselRef.current.scrollLeft += 1;
-        }
-      }
-    }, 20);
+    const scrollContainer = scrollRef.current;
+    let animationId;
+    let scrollPosition = 0;
 
-    return () => clearInterval(interval);
-  }, []);
+    const scroll = () => {
+      if (!isHovering && scrollContainer) {
+        scrollPosition += 1;
+        if (scrollPosition >= scrollContainer.scrollWidth / 2) {
+          scrollPosition = 0;
+        }
+        scrollContainer.scrollLeft = scrollPosition;
+      }
+      animationId = requestAnimationFrame(scroll);
+    };
+
+    animationId = requestAnimationFrame(scroll);
+
+    return () => {
+      cancelAnimationFrame(animationId);
+    };
+  }, [isHovering]);
 
   return (
-    <div className="relative min-h-screen bg-red-500 overflow-hidden">
+    <div className="relative flex flex-col min-h-screen bg-red-500 overflow-hidden">
       {/* Main content section taking full viewport height */}
       <div className="min-h-screen flex flex-col items-center justify-center text-center px-4 relative z-10">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto flex flex-col items-center">
           {/* Featured badge */}
-          <div className="inline-flex items-center bg-yellow-400 rounded-full px-4 py-1 mb-8">
+          <div className="inline-flex items-center bg-yellow-400 rounded-full px-4 py-1 mb-5">
             <Star className="h-5 w-5 mr-2 text-white fill-yellow-500" />
-            <span className="font-medium">12K+ Loved Our Pastries!</span>
+            <span className="font-medium">12K+ Loved Our Gravies!</span>
           </div>
-          
-          <h1 className="font-playfair text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
-            Bringing Sweet
-            <br />
-            <span className="text-yellow-300">Moments</span> to Life
+
+          <h1 className="font-playfair text-2xl md:text-3xl lg:text-6xl font-bold text-white leading-tight">
+            Ready to <span className="text-yellow-300">Eat, Cook, Serve</span>{" "}
+            for
           </h1>
-          
+          <h1 className="font-playfair text-2xl mb-4 md:text-3xl lg:text-6xl font-bold text-white leading-tight">
+            for Horeca business
+          </h1>
+
+          <p className="text-xl md:text-xl text-white/90 mb-4 max-w-2xl">
+            Handcrafted recipes to suite all taste buds
+          </p>
+
           {/* Action buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <Button 
-              className="bg-black hover:bg-black/80 text-white px-6 py-3 rounded-full text-lg"
-            >
-              Order Now
-            </Button>
-            <Button 
-              variant="outline" 
-              className="bg-transparent border-white text-white hover:bg-white/10 px-6 py-3 rounded-full text-lg"
-            >
-              Learn More
-            </Button>
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <EnquiryForm>
+              <a className="group relative inline-flex items-center justify-center overflow-hidden rounded-xl border-2 border-white px-8 py-3 font-medium text-lg shadow-md transition duration-300 ease-out min-w-[200px]">
+                <span className="absolute inset-0 flex h-full w-full -translate-y-full items-center justify-center bg-white text-black duration-300 group-hover:translate-y-0">
+                  <span className="font-montserrat absolute flex h-full w-full transform items-center justify-center text-black">
+                    Coming Soon
+                  </span>
+                </span>
+                <span className="font-montserrat absolute flex h-full w-full transform items-center justify-center text-white transition-all duration-300 group-hover:translate-y-full">
+                  Download App
+                </span>
+                <span className="invisible relative">Download App</span>
+              </a>
+            </EnquiryForm>
           </div>
-        </div>
-      </div>
 
-      {/* Food illustrations */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[15%] left-[5%] w-24 h-24 opacity-80">
-          <img src="/lovable-uploads/14c05084-bfe4-40a7-ab28-f1fa3ae2f61e.png" alt="Bread" className="w-full h-full object-contain" />
-        </div>
-        <div className="absolute top-[20%] right-[5%] w-24 h-24 opacity-80">
-          <img src="/lovable-uploads/14c05084-bfe4-40a7-ab28-f1fa3ae2f61e.png" alt="Pastry" className="w-full h-full object-contain" />
-        </div>
-        <div className="absolute bottom-[40%] left-[8%] w-20 h-20 opacity-80">
-          <img src="/lovable-uploads/14c05084-bfe4-40a7-ab28-f1fa3ae2f61e.png" alt="Cupcake" className="w-full h-full object-contain" />
-        </div>
-        <div className="absolute top-[60%] right-[10%] w-16 h-16 opacity-80">
-          <img src="/lovable-uploads/14c05084-bfe4-40a7-ab28-f1fa3ae2f61e.png" alt="Cookie" className="w-full h-full object-contain" />
-        </div>
-      </div>
+          {/* Carousel section with blur effects */}
+          <div className="w-full max-w-7xl mx-auto relative">
+            {/* Left blur gradient */}
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-red-500 to-transparent z-10"></div>
 
-      {/* Curved carousel at bottom */}
-      <div className="absolute bottom-16 left-0 right-0 h-64 z-0">
-        <div 
-          ref={carouselRef}
-          className="flex space-x-4 overflow-x-auto pb-4 px-4 carousel-mask scrollbar-hide"
-          style={{ 
-            scrollBehavior: 'smooth'
-          }}
-        >
-          {categories.map((category, index) => (
-            <div 
-              key={index} 
-              className="flex-shrink-0 w-64 h-44 rounded-3xl overflow-hidden carousel-item"
+            <div
+              ref={scrollRef}
+              className="flex space-x-4 overflow-x-auto pb-4 px-4 scrollbar-hide"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
-              <img 
-                src={category.image} 
-                alt={category.name}
-                className="w-full h-full object-cover"
-              />
+              {/* Double the categories for infinite scroll effect */}
+              {[...categories, ...categories].map((category, index) => (
+                <div
+                  key={`${category.name}-${index}`}
+                  className="flex-shrink-0 w-64 h-44 rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-105"
+                >
+                  <img
+                    src={category.image}
+                    alt={category.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
-          {/* Duplicate items for infinite effect */}
-          {categories.map((category, index) => (
-            <div 
-              key={`duplicate-${index}`} 
-              className="flex-shrink-0 w-64 h-44 rounded-3xl overflow-hidden carousel-item"
-            >
-              <img 
-                src={category.image} 
-                alt={category.name}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
+
+            {/* Right blur gradient */}
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-red-500 to-transparent z-10"></div>
+          </div>
         </div>
       </div>
 
@@ -134,23 +162,35 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 right-0 bg-dil-yellow py-3 overflow-hidden whitespace-nowrap">
         <div className="animate-marquee inline-block">
           <span className="text-lg font-bold mr-4">READY TO EAT!</span>
-          <span className="text-lg font-bold mr-4">READY TO REGENERATE IN 2 MINUTES!</span>
+          <span className="text-lg font-bold mr-4">
+            READY TO REGENERATE IN 2 MINUTES!
+          </span>
           <span className="text-lg font-bold mr-4">READY TO COOK!</span>
           <span className="text-lg font-bold mr-4">READY TO EAT!</span>
-          <span className="text-lg font-bold mr-4">READY TO REGENERATE IN 2 MINUTES!</span>
+          <span className="text-lg font-bold mr-4">
+            READY TO REGENERATE IN 2 MINUTES!
+          </span>
           <span className="text-lg font-bold mr-4">READY TO COOK!</span>
           <span className="text-lg font-bold mr-4">READY TO EAT!</span>
-          <span className="text-lg font-bold mr-4">READY TO REGENERATE IN 2 MINUTES!</span>
+          <span className="text-lg font-bold mr-4">
+            READY TO REGENERATE IN 2 MINUTES!
+          </span>
         </div>
         <div className="animate-marquee inline-block absolute">
           <span className="text-lg font-bold mr-4">READY TO EAT!</span>
-          <span className="text-lg font-bold mr-4">READY TO REGENERATE IN 2 MINUTES!</span>
+          <span className="text-lg font-bold mr-4">
+            READY TO REGENERATE IN 2 MINUTES!
+          </span>
           <span className="text-lg font-bold mr-4">READY TO COOK!</span>
           <span className="text-lg font-bold mr-4">READY TO EAT!</span>
-          <span className="text-lg font-bold mr-4">READY TO REGENERATE IN 2 MINUTES!</span>
+          <span className="text-lg font-bold mr-4">
+            READY TO REGENERATE IN 2 MINUTES!
+          </span>
           <span className="text-lg font-bold mr-4">READY TO COOK!</span>
           <span className="text-lg font-bold mr-4">READY TO EAT!</span>
-          <span className="text-lg font-bold mr-4">READY TO REGENERATE IN 2 MINUTES!</span>
+          <span className="text-lg font-bold mr-4">
+            READY TO REGENERATE IN 2 MINUTES!
+          </span>
         </div>
       </div>
     </div>
