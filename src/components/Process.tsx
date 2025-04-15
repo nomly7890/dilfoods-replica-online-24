@@ -29,7 +29,7 @@ const processSteps = [
     number: "05",
     title: "Delivery",
     description:
-      "Enjoy fast, reliable delivery right to your doorstep—at your convenience.",
+      "Enjoy fast, reliable delivery in 4 hours right to your doorstep—at your convenience.",
   },
 ];
 
