@@ -10,11 +10,10 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 flex justify-between items-center h-16">
         {/* Logo */}
         <div className="flex items-center">
-          <img 
-            src="/placeholder.svg" 
-            alt="Dil Foods Logo" 
-            className="h-10 w-auto"
-          />
+          <div className="text-3xl font-bold">
+            <span className="text-dil-red">Kingdom</span>
+            <span className="text-black text-xl ml-1">foods</span>
+          </div>
         </div>
 
         {/* Navigation Links */}
@@ -34,7 +33,7 @@ const Navbar: React.FC = () => {
             variant="default" 
             className="ml-4 px-6 py-2 text-sm font-medium"
           >
-            Get Started
+            Partner With Us
           </Button>
         </div>
       </div>
