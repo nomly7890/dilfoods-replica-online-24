@@ -63,14 +63,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				dil: {
-					red: '#ea384c',
-					orange: '#F97316',
-					yellow: '#FEF7CD',
-					white: '#fff',
-					offwhite: '#eee',
 					blue: '#1E4999',
 					darkblue: '#0C2456',
 					lightblue: '#3A93F2',
+					orange: '#FF5C2A',
+					yellow: '#FFA500',
 					lightgray: '#F5F5F5',
 					gray: '#6B7280'
 				}
