@@ -4,32 +4,32 @@ import React from 'react';
 const categories = [
   {
     name: "Fresh Produce",
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     description: "Farm-fresh vegetables and fruits sourced directly from verified farmers."
   },
   {
     name: "Dairy & Cheese",
-    image: "https://images.unsplash.com/photo-1626278664285-f796b9ee7806?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    image: "https://images.unsplash.com/photo-1559598467-f8b76c8155d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     description: "Premium quality dairy products including a variety of local and imported cheeses."
   },
   {
     name: "Meat & Poultry",
-    image: "https://images.unsplash.com/photo-1615937722923-67f6deaf2cc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    image: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     description: "High-quality, fresh meat and poultry products following strict safety standards."
   },
   {
     name: "Seafood",
-    image: "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    image: "https://images.unsplash.com/photo-1510130387422-82bed34b37e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     description: "Fresh seafood options from sustainable sources, delivered in optimal condition."
   },
   {
     name: "Bakery Items",
-    image: "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    image: "https://images.unsplash.com/photo-1517433367423-c7e5b0f35086?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     description: "Freshly baked bread, pastries, and other bakery essentials for your establishment."
   },
   {
     name: "Dry Goods & Staples",
-    image: "https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    image: "https://images.unsplash.com/photo-1620924035122-e74e6fc77f66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     description: "Essential cooking ingredients, pulses, rice, and other pantry necessities."
   }
 ];
