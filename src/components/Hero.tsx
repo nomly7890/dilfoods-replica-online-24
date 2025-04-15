@@ -5,8 +5,8 @@ import { Circle } from 'lucide-react';
 const Hero = () => {
   return (
     <div className="relative">
-      {/* Main gradient background */}
-      <div className="bg-dil-gradient pt-24 pb-10">
+      {/* Main elegant gradient background */}
+      <div className="bg-elegant-gradient pt-24 pb-10">
         <div className="container mx-auto px-4 py-16">
           <div className="flex flex-col items-center text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-5xl mx-auto leading-tight">
@@ -15,17 +15,17 @@ const Hero = () => {
             
             <div className="flex flex-col md:flex-row justify-center mt-12 gap-6 md:gap-12">
               <div className="flex items-center text-white">
-                <div className="w-3 h-3 bg-dil-yellow rounded-full mr-3"></div>
+                <div className="w-3 h-3 bg-soft-peach rounded-full mr-3"></div>
                 <span className="text-lg md:text-xl">In-house automated manufacturing facility</span>
               </div>
               
               <div className="flex items-center text-white">
-                <div className="w-3 h-3 bg-dil-yellow rounded-full mr-3"></div>
+                <div className="w-3 h-3 bg-soft-peach rounded-full mr-3"></div>
                 <span className="text-lg md:text-xl">AM to PM food solutions</span>
               </div>
               
               <div className="flex items-center text-white">
-                <div className="w-3 h-3 bg-dil-yellow rounded-full mr-3"></div>
+                <div className="w-3 h-3 bg-soft-peach rounded-full mr-3"></div>
                 <span className="text-lg md:text-xl">All cuisines covered</span>
               </div>
             </div>

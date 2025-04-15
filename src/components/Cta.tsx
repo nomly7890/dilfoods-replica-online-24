@@ -3,7 +3,7 @@ import React from 'react';
 
 const Cta = () => {
   return (
-    <section className="py-16 bg-gradient-to-r from-dil-blue to-dil-darkblue text-white">
+    <section className="py-16 bg-elegant-gradient-2 text-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-2/3 mb-8 md:mb-0">
@@ -11,11 +11,11 @@ const Cta = () => {
               Ready to Streamline Your Food Supply Chain?
             </h2>
             <p className="text-xl opacity-90 mb-0 max-w-2xl animate-fade-in" style={{animationDelay: "0.2s"}}>
-              Join hundreds of satisfied HORECA businesses that trust us for their food supply needs. Get started today!
+              Join hundreds of satisfied businesses that trust us for their food supply needs. Get started today!
             </p>
           </div>
           <div className="md:w-1/3 text-center md:text-right animate-fade-in" style={{animationDelay: "0.4s"}}>
-            <button className="bg-white text-dil-blue hover:bg-dil-lightgray py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 font-medium">
+            <button className="bg-white text-primary hover:bg-soft-peach py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 font-medium">
               Contact Us Now
             </button>
           </div>

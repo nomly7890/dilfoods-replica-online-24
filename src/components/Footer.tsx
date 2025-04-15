@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
             <div className="text-2xl font-bold mb-6">
-              <span className="text-dil-orange">Dil</span>Foods
+              <span className="text-soft-peach">Kingdom</span>Foods
             </div>
             <p className="text-gray-300 mb-6">
               Streamlining food supply for HORECA businesses with quality products and reliable service.
@@ -44,7 +44,7 @@ const Footer = () => {
           <div className="col-span-1">
             <h3 className="text-lg font-semibold mb-6">Our Services</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">HORECA Supply</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Food Supply</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Cloud Kitchens</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Quick Commerce</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Food Safety</a></li>
@@ -56,16 +56,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <MapPin className="w-5 h-5 mr-3 mt-1 text-dil-orange" />
+                <MapPin className="w-5 h-5 mr-3 mt-1 text-soft-peach" />
                 <span className="text-gray-300">123 Business Park, Bangalore, Karnataka 560001, India</span>
               </li>
               <li className="flex items-center">
-                <Phone className="w-5 h-5 mr-3 text-dil-orange" />
+                <Phone className="w-5 h-5 mr-3 text-soft-peach" />
                 <a href="tel:+918888888888" className="text-gray-300 hover:text-white transition-colors">+91 8888 888 888</a>
               </li>
               <li className="flex items-center">
-                <Mail className="w-5 h-5 mr-3 text-dil-orange" />
-                <a href="mailto:info@dilfoods.com" className="text-gray-300 hover:text-white transition-colors">info@dilfoods.com</a>
+                <Mail className="w-5 h-5 mr-3 text-soft-peach" />
+                <a href="mailto:info@kingdomfoods.com" className="text-gray-300 hover:text-white transition-colors">info@kingdomfoods.com</a>
               </li>
             </ul>
           </div>
@@ -73,7 +73,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Dil Foods. All rights reserved.</p>
+            <p className="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Kingdom Foods. All rights reserved.</p>
             <div className="flex space-x-6">
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>

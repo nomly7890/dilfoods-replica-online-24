@@ -2,8 +2,8 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import Benefits from '../components/Benefits';
 import Products from '../components/Products';
+import QuickDelivery from '../components/QuickDelivery';
 import Process from '../components/Process';
 import Testimonials from '../components/Testimonials';
 import Cta from '../components/Cta';
@@ -15,8 +15,8 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <Hero />
-      <Benefits />
       <Products />
+      <QuickDelivery />
       <Process />
       <Testimonials />
       <Cta />

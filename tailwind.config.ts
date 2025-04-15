@@ -74,10 +74,16 @@ export default {
 					red: '#ed1c24',
 					purple: '#5a0080',
 					maroon: '#910048'
-				}
+				},
+				'soft-purple': '#E5DEFF',
+				'soft-peach': '#FDE1D3',
+				'soft-blue': '#D3E4FD',
+				'soft-gray': '#F1F0FB',
 			},
 			backgroundImage: {
 				'dil-gradient': 'linear-gradient(90deg, #5a0080 0%, #910048 50%, #ed1c24 100%)',
+				'elegant-gradient': 'linear-gradient(to right, #304352 0%, #d7d2cc 100%)',
+				'elegant-gradient-2': 'linear-gradient(to right, #243949 0%, #517fa4 100%)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

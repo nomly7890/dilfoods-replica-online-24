@@ -7,9 +7,9 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            {/* Dil Foods Logo */}
+            {/* Kingdom Foods Logo */}
             <div className="text-3xl font-bold">
-              <span className="text-dil-red">Dil</span>
+              <span className="text-dil-red">Kingdom</span>
               <span className="text-white text-xl">foods</span>
             </div>
           </div>
@@ -17,9 +17,8 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-8">
             <a href="#" className="text-white hover:text-dil-yellow transition-colors font-medium">Home</a>
             <a href="#" className="text-white hover:text-dil-yellow transition-colors font-medium">Restaurant Partnership</a>
-            <a href="#" className="text-dil-yellow transition-colors font-medium">Horeca Supply</a>
             <a href="#" className="text-white hover:text-dil-yellow transition-colors font-medium">Media</a>
-            <a href="#" className="bg-white text-dil-purple font-medium px-4 py-2 rounded-md ml-4">Partner With Dil</a>
+            <a href="#" className="bg-white text-dil-purple font-medium px-4 py-2 rounded-md ml-4">Partner With Us</a>
           </div>
           
           <div className="md:hidden">
