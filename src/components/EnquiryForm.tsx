@@ -10,11 +10,22 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+
+interface FormData {
+  brandName: string;
+  products: string[];
+  quantities: string;
+  contact: string;
+  email: string;
+}
 
 export default function EnquiryForm({
   children,
@@ -23,6 +34,15 @@ export default function EnquiryForm({
 }) {
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState<FormData>({
+    brandName: "",
+    products: [],
+    quantities: "",
+    contact: "",
+    email: "",
+  });
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const foodCategories = [
     { id: "snacks", label: "Snacks" },
@@ -36,24 +56,66 @@ export default function EnquiryForm({
     { id: "indian-breads", label: "Indian Breads" },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleCheckboxChange = (categoryId: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      products: prev.products.includes(categoryId)
+        ? prev.products.filter((id) => id !== categoryId)
+        : [...prev.products, categoryId],
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    // In a real application, you would handle form submission here
-    setTimeout(() => {
-      setSubmitted(false);
-      setOpen(false);
-    }, 2000);
+    setError(null);
+    setLoading(true);
+
+    try {
+      // Add document to Firestore
+      const docRef = await addDoc(collection(db, "enquiries"), {
+        ...formData,
+        createdAt: serverTimestamp(),
+      });
+
+      setSubmitted(true);
+      // Reset form after successful submission
+      setFormData({
+        brandName: "",
+        products: [],
+        quantities: "",
+        contact: "",
+        email: "",
+      });
+
+      // Close dialog after 2 seconds
+      setTimeout(() => {
+        setSubmitted(false);
+        setOpen(false);
+      }, 2000);
+    } catch (err) {
+      console.error("Error submitting enquiry:", err);
+      setError("Failed to submit enquiry. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden rounded-2xl border-none shadow-2xl">
+      <DialogContent
+        className="sm:max-w-[600px] p-0 overflow-hidden rounded-2xl border-none shadow-2xl"
+        aria-describedby="form-description"
+      >
         {!submitted ? (
           <form onSubmit={handleSubmit} className="relative">
-            {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-teal-100 rounded-full -mr-16 -mt-16 z-0"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-amber-100 rounded-full -ml-12 -mb-12 z-0"></div>
 
             <div className="p-8 relative z-10">
@@ -61,24 +123,37 @@ export default function EnquiryForm({
                 <DialogTitle className="text-center text-3xl font-bold bg-gradient-to-r from-teal-600 to-emerald-500 bg-clip-text text-transparent">
                   Let's Connect
                 </DialogTitle>
-                <p className="text-center text-gray-500 mt-2">
+                <DialogDescription
+                  id="form-description"
+                  className="text-center text-gray-500 mt-2"
+                >
                   Fill out the form below and we'll get back to you shortly
-                </p>
+                </DialogDescription>
               </DialogHeader>
+
+              {error && (
+                <div className="mb-4 p-3 bg-red-50 text-red-600 rounded-lg text-sm">
+                  {error}
+                </div>
+              )}
 
               <div className="space-y-6">
                 <div className="space-y-2">
                   <Label
-                    htmlFor="brand-name"
+                    htmlFor="brandName"
                     className="text-sm font-medium text-gray-700 flex items-center"
                   >
                     Brand Name <span className="text-rose-500 ml-1">*</span>
                   </Label>
                   <Input
-                    id="brand-name"
+                    id="brandName"
+                    name="brandName"
+                    value={formData.brandName}
+                    onChange={handleInputChange}
                     placeholder="Enter your brand name"
                     className="rounded-lg border-gray-200 focus:border-teal-500 focus:ring-teal-500 transition-all"
                     required
+                    disabled={loading}
                   />
                 </div>
 
@@ -95,7 +170,12 @@ export default function EnquiryForm({
                       >
                         <Checkbox
                           id={category.id}
+                          checked={formData.products.includes(category.id)}
+                          onCheckedChange={() =>
+                            handleCheckboxChange(category.id)
+                          }
                           className="text-teal-600 border-gray-300 rounded focus:ring-teal-500"
+                          disabled={loading}
                         />
                         <Label
                           htmlFor={category.id}
@@ -117,8 +197,12 @@ export default function EnquiryForm({
                   </Label>
                   <Textarea
                     id="quantities"
+                    name="quantities"
+                    value={formData.quantities}
+                    onChange={handleInputChange}
                     placeholder="Enter approximate quantities required per month"
                     className="rounded-lg border-gray-200 focus:border-teal-500 focus:ring-teal-500 min-h-[100px] transition-all"
+                    disabled={loading}
                   />
                 </div>
 
@@ -133,9 +217,13 @@ export default function EnquiryForm({
                     </Label>
                     <Input
                       id="contact"
+                      name="contact"
+                      value={formData.contact}
+                      onChange={handleInputChange}
                       placeholder="Enter your contact number"
                       className="rounded-lg border-gray-200 focus:border-teal-500 focus:ring-teal-500 transition-all"
                       required
+                      disabled={loading}
                     />
                   </div>
                   <div className="space-y-2">
@@ -147,9 +235,13 @@ export default function EnquiryForm({
                     </Label>
                     <Input
                       id="email"
+                      name="email"
                       type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       placeholder="Enter your email address"
                       className="rounded-lg border-gray-200 focus:border-teal-500 focus:ring-teal-500 transition-all"
+                      disabled={loading}
                     />
                   </div>
                 </div>
@@ -157,8 +249,15 @@ export default function EnquiryForm({
                 <Button
                   type="submit"
                   className="w-full bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 text-white rounded-lg py-3 transition-all duration-300 shadow-md hover:shadow-lg"
+                  disabled={loading}
                 >
-                  Submit Enquiry <Send className="ml-2 h-4 w-4" />
+                  {loading ? (
+                    "Submitting..."
+                  ) : (
+                    <>
+                      Submit Enquiry <Send className="ml-2 h-4 w-4" />
+                    </>
+                  )}
                 </Button>
               </div>
             </div>
