@@ -1,5 +1,3 @@
-import React from "react";
-
 const testimonials = [
   {
     quote:
@@ -65,24 +63,6 @@ const Testimonials = () => {
               <p className="font-montserrat text-dil-gray text-lg mb-6 flex-grow italic">
                 {testimonial.quote}
               </p>
-
-              <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.author}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-montserrat font-semibold text-dil-darkblue">
-                    {testimonial.author}
-                  </h4>
-                  <p className="font-montserrat text-sm text-dil-gray">
-                    {testimonial.position}
-                  </p>
-                </div>
-              </div>
             </div>
           ))}
         </div>
