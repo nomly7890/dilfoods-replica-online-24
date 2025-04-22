@@ -1,7 +1,7 @@
 const testimonials = [
   {
     quote:
-      "Partnering with Kindom Foods has revolutionized our restaurant's supply chain. Their consistency in quality and reliability is truly unmatched.",
+      "Partnering with Kingdom Foods has revolutionized our restaurant's supply chain. Their consistency in quality and reliability is truly unmatched.",
     author: "Rajiv Mehta",
     position: "Executive Chef, Grand Hyatt",
     image:
@@ -9,7 +9,7 @@ const testimonials = [
   },
   {
     quote:
-      "Thanks to Kindom Foods' timely deliveries and diverse product selection, menu planning and execution across our café chain has become seamless.",
+      "Thanks to Kingdom Foods' timely deliveries and diverse product selection, menu planning and execution across our café chain has become seamless.",
     author: "Priya Sharma",
     position: "Operations Manager, Cafe Delight",
     image:
@@ -17,7 +17,7 @@ const testimonials = [
   },
   {
     quote:
-      "Kindom Foods' rigorous quality control ensures we always receive top-tier ingredients—perfectly suited for our 5-star hospitality standards.",
+      "Kingdom Foods' rigorous quality control ensures we always receive top-tier ingredients—perfectly suited for our 5-star hospitality standards.",
     author: "Arjun Singh",
     position: "F&B Director, Luxury Resort & Spa",
     image:

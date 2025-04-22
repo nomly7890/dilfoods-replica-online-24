@@ -2,7 +2,7 @@ import React from "react";
 
 const QuickDelivery = () => {
   return (
-    <section className="py-16 bg-yellow-400" id="quick-delivery">
+    <section className="py-16 bg-red-50" id="quick-delivery">
       <div className="container mx-auto ">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-7/12">

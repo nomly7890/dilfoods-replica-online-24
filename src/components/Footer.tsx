@@ -9,13 +9,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
             <div className="text-2xl font-bold mb-6">
-            <div className="font-montserrat">
-            <span className="text-dil-red font-bold text-2xl italic">KINGDOM</span>
-            <span className="text-white text-xl ml-1 font-medium italic">FOODS</span>
-          </div>
+              <div className="font-montserrat">
+                <img 
+                  src="/lovable-uploads/icon.png" 
+                  alt="Kingdom Foods Logo" 
+                  className="h-20 w-auto" 
+                />
+              </div>
             </div>
             <p className="text-gray-300 mb-6">
-              Streamlining food supply for HORECA businesses with quality products and reliable service.
+            Accelerating your 10 mins food delivery journey. Fueling, Simplifying, Empowering
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-white transition-colors">

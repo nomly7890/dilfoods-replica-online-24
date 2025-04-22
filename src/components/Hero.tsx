@@ -87,6 +87,14 @@ const Hero = () => {
 
   return (
     <div className="relative flex flex-col bg-red-500 overflow-hidden">
+      {/* Logo in top left corner */}
+      <div className="absolute top-4 left-4 z-20">
+        <img 
+          src="/lovable-uploads/icon.png" 
+          alt="Kingdom Foods Logo" 
+          className="h-15 w-auto"
+        />
+      </div>
       {/* Main content section with proper spacing */}
       <div className="flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 lg:pb-20 relative z-10">
         <div className="w-full sm:max-w-xl lg:max-w-4xl xl:max-w-6xl mx-auto flex flex-col items-center">
