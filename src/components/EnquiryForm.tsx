@@ -12,12 +12,14 @@ import {
   DialogTitle,
   DialogDescription,
   DialogTrigger,
+  DialogClose,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { db } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { X } from "lucide-react";
 
 interface FormData {
   brandName: string;
@@ -111,11 +113,17 @@ export default function EnquiryForm({
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent
-        className="sm:max-w-[600px] p-0 overflow-hidden rounded-2xl border-none shadow-2xl"
+        className="sm:max-w-[600px] p-0 overflow-hidden rounded-2xl border-none shadow-2xl max-h-[90vh]"
         aria-describedby="form-description"
       >
+        {/* Close button */}
+        <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground z-20">
+          <X className="h-5 w-5" />
+          <span className="sr-only">Close</span>
+        </DialogClose>
+
         {!submitted ? (
-          <form onSubmit={handleSubmit} className="relative">
+          <form onSubmit={handleSubmit} className="relative overflow-y-auto max-h-[80vh]">
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-amber-100 rounded-full -ml-12 -mb-12 z-0"></div>
 
             <div className="p-8 relative z-10">
