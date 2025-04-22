@@ -92,7 +92,7 @@ const Hero = () => {
         <img 
           src="/lovable-uploads/icon.png" 
           alt="Kingdom Foods Logo" 
-          className="h-15 w-auto"
+          className="h-12 sm:h-15 md:h-20 lg:h-25 w-auto"
         />
       </div>
       {/* Main content section with proper spacing */}
